@@ -25,6 +25,7 @@ struct BroadcastOptions {
   int rootRank = 0;
   int rootTensor = 0;
   std::chrono::milliseconds timeout = kUnsetTimeout;
+  std::vector<at::cuda::CUDAStream> cudaStreams = {};
 };
 
 struct AllreduceOptions {
@@ -40,10 +41,12 @@ struct ReduceOptions {
   int rootRank = 0;
   int rootTensor = 0;
   std::chrono::milliseconds timeout = kUnsetTimeout;
+  std::vector<at::cuda::CUDAStream> cudaStreams = {};
 };
 
 struct AllgatherOptions {
   std::chrono::milliseconds timeout = kUnsetTimeout;
+  std::vector<at::cuda::CUDAStream> cudaStreams = {};
 };
 
 struct GatherOptions {
@@ -59,10 +62,12 @@ struct ScatterOptions {
 struct ReduceScatterOptions {
   ReduceOp reduceOp = ReduceOp::SUM;
   std::chrono::milliseconds timeout = kUnsetTimeout;
+  std::vector<at::cuda::CUDAStream> cudaStreams = {};
 };
 
 struct AllToAllOptions {
   std::chrono::milliseconds timeout = kUnsetTimeout;
+  std::vector<at::cuda::CUDAStream> cudaStreams = {};
 };
 
 struct BarrierOptions {
